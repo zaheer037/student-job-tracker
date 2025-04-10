@@ -1,95 +1,66 @@
 // src/components/JobForm.jsx
 import { useState } from "react";
 import api from "../api";
+import { toast } from "react-toastify";
 
-const JobForm = ({ onJobAdded }) => {
-    const [formData, setFormData] = useState({
-        company: "",
-        role: "",
-        status: "Applied",
-        applicationDate: "",
-        link: "",
-    });
+const JobForm = () => {
+  const [form, setForm] = useState({
+    company: "",
+    role: "",
+    status: "Applied",
+    applicationDate: "",
+    link: "",
+  });
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prev) => ({ ...prev, [name]: value }));
-    };
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const res = await api.post("/jobs", formData);
-            onJobAdded(res.data); // Notify parent
-            setFormData({
-                company: "",
-                role: "",
-                status: "Applied",
-                applicationDate: "",
-                link: "",
-            });
-        } catch (err) {
-            console.error("Error adding job:", err);
-        }
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await api.post("/jobs", form);
+      toast.success("Job added successfully!");
+      window.location.reload(); // or lift state up to avoid reload
+    } catch (err) {
+      console.error(err);
+      toast.error("Failed to add job");
+    }
+  };
 
-    return (
-        <form onSubmit={handleSubmit} className="bg-white p-4 rounded shadow-md mb-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <input
-                    type="text"
-                    name="company"
-                    placeholder="Company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    required
-                    className="p-2 border rounded"
-                />
-                <input
-                    type="text"
-                    name="role"
-                    placeholder="Role"
-                    value={formData.role}
-                    onChange={handleChange}
-                    required
-                    className="p-2 border rounded"
-                />
-                <select
-                    name="status"
-                    value={formData.status}
-                    onChange={handleChange}
-                    className="p-2 border rounded"
-                >
-                    <option value="Applied">Applied</option>
-                    <option value="Interview">Interview</option>
-                    <option value="Offer">Offer</option>
-                    <option value="Rejected">Rejected</option>
-                </select>
-                <input
-                    type="date"
-                    name="applicationDate"
-                    value={formData.applicationDate}
-                    onChange={handleChange}
-                    required
-                    className="p-2 border rounded"
-                />
-                <input
-                    type="url"
-                    name="link"
-                    placeholder="Job Link"
-                    value={formData.link}
-                    onChange={handleChange}
-                    className="p-2 border rounded col-span-full"
-                />
-            </div>
-            <button
-                type="submit"
-                className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-            >
-                Add Job
-            </button>
-        </form>
-    );
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4 bg-white p-4 shadow rounded">
+      <input type="text" name="company" placeholder="Company" required
+        className="w-full p-2 border rounded"
+        value={form.company} onChange={handleChange}
+      />
+      <input type="text" name="role" placeholder="Role" required
+        className="w-full p-2 border rounded"
+        value={form.role} onChange={handleChange}
+      />
+      <select name="status" value={form.status} onChange={handleChange}
+        className="w-full p-2 border rounded"
+      >
+        <option>Applied</option>
+        <option>Interview</option>
+        <option>Offer</option>
+        <option>Rejected</option>
+      </select>
+      <input type="date" name="applicationDate" required
+        className="w-full p-2 border rounded"
+        value={form.applicationDate} onChange={handleChange}
+      />
+      <input type="url" name="link" placeholder="Job Link"
+        className="w-full p-2 border rounded"
+        value={form.link} onChange={handleChange}
+      />
+      <button type="submit"
+        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+      >
+        Add Job
+      </button>
+    </form>
+  );
 };
 
 export default JobForm;

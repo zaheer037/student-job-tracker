@@ -1,17 +1,23 @@
-import { useState } from 'react'
-import Home from './pages/Home'
-import './App.css'
+// src/App.jsx
+import JobForm from "./components/JobForm";
+import JobList from "./components/JobList";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-  // const [count, setCount] = useState(0)
-
   return (
     <>
-      <div className="min-h-screen p-4 bg-gray-100">
-        <Home />
+      <div className="p-4 max-w-4xl mx-auto px-4">
+        <h1 className="text-3xl font-bold text-center text-blue-700 mb-6">
+          🎯 Student Job Tracker
+        </h1>
+        <JobForm />
+        <hr className="my-6" />
+        <JobList />
       </div>
+      <ToastContainer position="top-right" autoClose={2000} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
