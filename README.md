@@ -12,7 +12,7 @@ A full-stack MERN web application that helps students efficiently manage and tra
 ## 📸 Preview
 
 <!-- Replace below image with your actual screenshot -->
-![App Screenshot](./screenshots/dashboard.png)
+![App Screenshot](client\src\assets\app_preview.png)
 
 <!-- You can also include a GIF below if needed -->
 <!-- ![Demo GIF](./screenshots/demo.gif) -->
