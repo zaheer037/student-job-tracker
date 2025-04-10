@@ -4,7 +4,6 @@ import Job from "../models/Job.js";
 export const getJobs = async (req, res) => {
   const jobs = await Job.find().sort({ createdAt: -1 });
   res.json(jobs);
-  // res.send("Backend is working!");
 };
 
 // @desc Create new job application
