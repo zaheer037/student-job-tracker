@@ -122,17 +122,17 @@ MONGO_URI=your_mongo_connection_string
 ```
 student-job-tracker/
 ├── server/
-|  ├── controllers/
-|  │   └── jobController.js
-|  ├── models/
-|  │   └── Job.js
-|  ├── routes/
-|  │   └── jobRoutes.js
-|  ├── config/
-|  │   └── db.js
-|  ├── .env
-|  ├── server.js
-|  ├── package.json
+  ├── controllers/
+  │   └── jobController.js
+  ├── models/
+  │   └── Job.js
+  ├── routes/
+  │   └── jobRoutes.js
+  ├── config/
+  │   └── db.js
+  ├── .env
+  ├── server.js
+  ├── package.json
 
 ├── client/
   ├── public/
