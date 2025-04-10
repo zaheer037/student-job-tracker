@@ -12,7 +12,7 @@ A full-stack MERN web application that helps students efficiently manage and tra
 ## 📸 Preview
 
 <!-- Replace below image with your actual screenshot -->
-![App Screenshot](client\src\assets\app_preview.png)
+![App Screenshot](./client/src/assets/app_preview.png)
 
 <!-- You can also include a GIF below if needed -->
 <!-- ![Demo GIF](./screenshots/demo.gif) -->
@@ -79,7 +79,7 @@ A full-stack MERN web application that helps students efficiently manage and tra
 |--------|-------------------|------------------------------|
 | POST   | `/api/jobs`       | Add new job application      |
 | GET    | `/api/jobs`       | Get all job applications     |
-| PATCH  | `/api/jobs/:id`   | Update job status            |
+| PUT  | `/api/jobs/:id`   | Update job status            |
 | DELETE | `/api/jobs/:id`   | Delete a job application     |
 
 ---
@@ -89,7 +89,7 @@ A full-stack MERN web application that helps students efficiently manage and tra
 1. **Clone the repo:**
 
 ```bash
-git clone https://github.com/your-username/student-job-tracker.git
+git clone https://github.com/zaheer037/mern_ta_cuvette.git
 ```
 
 2. **Frontend Setup:**
@@ -105,7 +105,7 @@ npm run dev
 ```bash
 cd backend
 npm install
-npm start
+npm run dev
 ```
 
 4. **.env File (Backend):**
@@ -121,13 +121,31 @@ MONGO_URI=your_mongo_connection_string
 
 ```
 student-job-tracker/
-├── backend/             # Express + MongoDB API
-├── frontend/            # React + Tailwind UI
-│   ├── components/
-│   ├── pages/
-│   ├── services/        # Axios API functions
-│   └── App.jsx
-├── README.md
+├── server/
+|  ├── controllers/
+|  │   └── jobController.js
+|  ├── models/
+|  │   └── Job.js
+|  ├── routes/
+|  │   └── jobRoutes.js
+|  ├── config/
+|  │   └── db.js
+|  ├── .env
+|  ├── server.js
+|  ├── package.json
+
+├── client/
+  ├── public/
+  ├── src/
+  │   ├── components/
+  │   │   ├── JobForm.jsx
+  │   │   ├── JobList.jsx
+  │   │   └── JobCard.jsx
+  │   ├── api.js
+  │   ├── App.jsx
+  │   └── main.jsx
+  ├── .env
+  ├── package.json
 ```
 
 ---
