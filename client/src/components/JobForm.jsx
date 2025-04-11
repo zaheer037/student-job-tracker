@@ -21,7 +21,9 @@ const JobForm = () => {
     try {
       await api.post("/jobs", form);
       toast.success("Job added successfully!");
-      window.location.reload(); // or lift state up to avoid reload
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000); // Reload after 2 seconds
     } catch (err) {
       console.error(err);
       toast.error("Failed to add job");
