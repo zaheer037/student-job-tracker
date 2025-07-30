@@ -23,7 +23,6 @@ A full-stack MERN web application that helps students efficiently manage and tra
 
 **Zaheer**, MERN Stack Developer  
 👨‍🎓 Pursuing professional training at Chalapathi Institute of Engineering and Technology  
-💼 Internship Assignment for **Cuvette**
 
 ---
 
