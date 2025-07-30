@@ -88,7 +88,7 @@ A full-stack MERN web application that helps students efficiently manage and tra
 1. **Clone the repo:**
 
 ```bash
-git clone https://github.com/zaheer037/mern_ta_cuvette.git
+git clone https://github.com/zaheer037/student-job-tracker.git
 ```
 
 2. **Frontend Setup:**
@@ -160,7 +160,7 @@ student-job-tracker/
 
 ## 🙌 Acknowledgements
 
-- Designed and developed as part of an assignment for **Cuvette**  
+- Designed and developed as a self intrest
 - Inspired by real-world job tracking challenges faced by students
 
 ---
